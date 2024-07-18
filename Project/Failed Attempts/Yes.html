@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        input[type="checkbox"], input[type="range"] {
+            margin-right: 10px;
+        }
+        .checkbox-group, .slider-group {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .checkbox-group label, .slider-group label {
+            width: 50%;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Restaurant Finder</h1>
+    </header>
+    <div class="container">
+        <form>
+            <h2>Location</h2>
+            <div class="form-group">
+                <label for="city">City</label>
+                <select id="city" name="city">
+                    <option value="caloocan">Caloocan</option>
+                    <option value="las_pinas">Las Piñas</option>
+                    <option value="makati">Makati</option>
+                    <option value="malabon">Malabon</option>
+                    <option value="mandaluyong">Mandaluyong</option>
+                    <option value="manila">Manila</option>
+                    <option value="marikina">Marikina</option>
+                    <option value="muntinlupa">Muntinlupa</option>
+                    <option value="navotas">Navotas</option>
+                    <option value="paranaque">Parañaque</option>
+                    <option value="pasay">Pasay</option>
+                    <option value="pasig">Pasig</option>
+                    <option value="quezon_city">Quezon City</option>
+                    <option value="san_juan">San Juan</option>
+                    <option value="taguig">Taguig</option>
+                    <option value="valenzuela">Valenzuela</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="street">Street or Landmark</label>
+                <input type="text" id="street" name="street">
+            </div>
+            <div class="form-group">
+                <label for="location">Exact Location (IDK)</label>
+                <input type="text" id="location" name="location">
+            </div>
+
+            <h2>Cuisine</h2>
+            <div class="form-group checkbox-group">
+                <label><input type="checkbox" name="cuisine" value="italian">Italian</label>
+                <label><input type="checkbox" name="cuisine" value="french">French</label>
+                <label><input type="checkbox" name="cuisine" value="japanese">Japanese</label>
+                <label><input type="checkbox" name="cuisine" value="chinese">Chinese</label>
+                <label><input type="checkbox" name="cuisine" value="mexican">Mexican</label>
+                <label><input type="checkbox" name="cuisine" value="indian">Indian</label>
+                <label><input type="checkbox" name="cuisine" value="thai">Thai</label>
+                <label><input type="checkbox" name="cuisine" value="spanish">Spanish</label>
+                <label><input type="checkbox" name="cuisine" value="greek">Greek</label>
+                <label><input type="checkbox" name="cuisine" value="middle_eastern">Middle Eastern</label>
+                <label><input type="checkbox" name="cuisine" value="american">American</label>
+                <label><input type="checkbox" name="cuisine" value="korean">Korean</label>
+                <label><input type="checkbox" name="cuisine" value="vietnamese">Vietnamese</label>
+                <label><input type="checkbox" name="cuisine" value="filipino">Filipino</label>
+            </div>
+            <div class="form-group">
+                <label for="dishes">Dishes or Specialities</label>
+                <input type="text" id="dishes" name="dishes">
+            </div>
+
+            <h2>Price</h2>
+            <div class="form-group slider-group">
+                <label for="price">Price per person: <span id="priceValue">0</span></label>
+                <input type="range" id="price" name="price" min="0" max="5000" value="0" oninput="document.getElementById('priceValue').innerText = this.value;">
+            </div>
+
+            <h2>Rating</h2>
+            <div class="form-group slider-group">
+                <label for="rating">Rating: <span id="ratingValue">0</span></label>
+                <input type="range" id="rating" name="rating" min="0" max="5" step="0.1" value="0" oninput="document.getElementById('ratingValue').innerText = this.value;">
+            </div>
+
+            <h2>Dietary Restrictions</h2>
+            <div class="form-group checkbox-group">
+                <label><input type="checkbox" name="diet" value="vegetarian">Vegetarian</label>
+                <label><input type="checkbox" name="diet" value="vegan">Vegan</label>
+                <label><input type="checkbox" name="diet" value="gluten_free">Gluten-Free</label>
+                <label><input type="checkbox" name="diet" value="lactose_free">Lactose-Free</label>
+                <label><input type="checkbox" name="diet" value="halal">Halal</label>
+                <label><input type="checkbox" name="diet" value="keto">Ketogenic (Keto)</label>
+                <label><input type="checkbox" name="diet" value="pescatarian">Pescatarian</label>
+                <label><input type="checkbox" name="diet" value="diabetic">Diabetic Diet</label>
+                <label><input type="checkbox" name="diet" value="low_sodium">Low-Sodium</label>
+            </div>
+
+            <h2>Accommodation</h2>
+            <div class="form-group slider-group">
+                <label for="accommodation">Accommodation: <span id="accommodationValue">0</span></label>
+                <input type="range" id="accommodation" name="accommodation" min="0" max="5" step="0.1" value="0" oninput="document.getElementById('accommodationValue').innerText = this.value;">
+            </div>
+
+            <h2>Specific Restaurant Features</h2>
+            <div class="form-group checkbox-group">
+                <label><input type="checkbox" name="feature" value="outdoor_seating">Outdoor Seating</label>
+                <label><input type="checkbox" name="feature" value="indoor_seating">Indoor Seating</label>
+                <label><input type="checkbox" name="feature" value="takeout">Takeout</label>
+                <label><input type="checkbox" name="feature" value="delivery">Delivery</label>
+                <label><input type="checkbox" name="feature" value="drive_thru">Drive-Thru</label>
+                <label><input type="checkbox" name="feature" value="curbside_pickup">Curbside Pickup</label>
+                <label><input type="checkbox" name="feature" value="reservations">Reservations</label>
+                <label><input type="checkbox" name="feature" value="walk_ins_welcome">Walk-Ins Welcome</label>
+                <label><input type="checkbox" name="feature" value="bar_service">Bar Service</label>
+                <label><input type="checkbox" name="feature" value="happy_hour">Happy Hour</label>
+                <label><input type="checkbox" name="feature" value="live_music">Live Music</label>
+                <label><input type="checkbox" name="feature" value="private_dining">Private Dining Rooms</label>
+                <label><input type="checkbox" name="feature" value="buffet">Buffet</label>
+                <label><input type="checkbox" name="feature" value="brunch_service">Brunch Service</label>
+                <label><input type="checkbox" name="feature" value="wifi_access">Wi-Fi Access</label>
+                <label><input type="checkbox" name="feature" value="pet_friendly">Pet-Friendly</label>
+                <label><input type="checkbox" name="feature" value="kid_friendly">Kid-Friendly</label>
+                <label><input type="checkbox" name="feature" value="wheelchair_accessible">Wheelchair Accessible</label>
+                <label><input type="checkbox" name="feature" value="credit_card_accepted">Credit Card Accepted</label>
+                <label><input type="checkbox" name="feature" value="cash_only">Cash Only</label>
+                <label><input type="checkbox" name="feature" value="valet_parking">Valet Parking</label>
+                <label><input type="checkbox" name="feature" value="self_parking">Self-Parking</label>
+                <label><input type="checkbox" name="feature" value="open_24_hours">Open 24 Hours</label>
+                <label><input type="checkbox" name="feature" value="breakfast_service">Breakfast Service</label>
+                <label><input type="checkbox" name="feature" value="lunch_service">Lunch Service</label>
+                <label><input type="checkbox" name="feature" value="dinner_service">Dinner Service</label>
+                <label><input type="checkbox" name="feature" value="dessert_menu">Dessert Menu</label>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Find Restaurants</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
